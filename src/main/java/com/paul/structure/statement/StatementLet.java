@@ -24,19 +24,10 @@ public class StatementLet extends Statement {
   public void execute() {
     value.load();
 
-    LocalVariableGen localVariableGen = null;
-
-    if (value instanceof ExpressionString) {
-      localVariableGen
-          = compiler.methodGen.addLocalVariable(((ExpressionVariable) variable).getVariableName(),
-          Type.STRING, null, null);
-      localVariableGen.setStart(compiler.instructionList.append(new ASTORE(localVariableGen.getIndex())));
-    } else {
-      localVariableGen
-          = compiler.methodGen.addLocalVariable(((ExpressionVariable) variable).getVariableName(),
-          Type.INT, null, null);
-      localVariableGen.setStart(compiler.instructionList.append(new ISTORE(localVariableGen.getIndex())));
-    }
+    LocalVariableGen localVariableGen
+        = compiler.methodGen.addLocalVariable(((ExpressionVariable) variable).getVariableName(),
+        Type.INT, null, null);
+    localVariableGen.setStart(compiler.instructionList.append(new ISTORE(localVariableGen.getIndex())));
 
     compiler.variables.put(((ExpressionVariable) variable).getVariableName(), localVariableGen.getIndex());
   }

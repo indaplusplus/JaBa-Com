@@ -9,8 +9,7 @@ public class Main {
     Code code = new Code();
 
     code.insertLine("01 GOSUB 02");
-    code.insertLine("02 PRINT \"hi\"");
-    code.insertLine("04 INPUT A");
+    code.insertLine("02 INPUT A");
     code.insertLine("08 LET A = A * A");
     code.insertLine("10 PRINT A");
     code.insertLine("15 RETURN");
