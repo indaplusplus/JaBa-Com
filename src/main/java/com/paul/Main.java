@@ -8,18 +8,16 @@ public class Main {
   public static void main(String[] args) {
     Code code = new Code();
 
-    code.insertLine("01 GOSUB 02");
-    code.insertLine("02 INPUT A");
-    code.insertLine("08 LET A = A * A");
-    code.insertLine("10 PRINT A");
-    code.insertLine("15 RETURN");
-    code.insertLine("20 END");
-
-//    code.insertLine("05 LET A = 5");
-//    code.insertLine("10 PRINT \"Hello, World!\"");
-//    code.insertLine("15 LET A = A * 5");
-//    code.insertLine("35 PRINT A");
-//    code.insertLine("50 END");
+    code.insertLine("05 LET LOOP = 0");
+    code.insertLine("10 LET A = 0");
+    code.insertLine("20 LET B = 1");
+    code.insertLine("30 LET A = A + B");
+    code.insertLine("40 LET B = B + 1");
+    code.insertLine("50 IF B < 1001 THEN GOTO 30");
+    code.insertLine("60 PRINT LOOP, \" \", A");
+    code.insertLine("65 LET LOOP = LOOP + 1");
+    code.insertLine("67 IF LOOP < 1000 THEN GOTO 10");
+    code.insertLine("70 END");
 
     Compiler compiler = new Compiler(code);
 

@@ -2,6 +2,7 @@ package com.paul.core;
 
 import com.paul.structure.Line;
 import com.paul.structure.Token;
+import com.paul.structure.Token.Type;
 import java.util.ArrayList;
 
 public class Tokenizer {
@@ -25,7 +26,6 @@ public class Tokenizer {
     keywords.add("let");
     keywords.add("gosub");
     keywords.add("return");
-    keywords.add("clear");
     keywords.add("end");
 
     String numbers = "0123456789";
@@ -111,7 +111,7 @@ public class Tokenizer {
       return new Token(Token.Type.KEYWORD, token.toLowerCase());
     }
 
-    return null;
+    return new Token(Token.Type.VARIABLE, token);
   }
 
   public Token readNumber(String token, CharacterBuffer buffer) {
